@@ -3,7 +3,6 @@
 #include "enviroment.h"
 #include "player.h"
 #include <raylib.h>
-#include <hashmap.h>
 #include <pthread.h>
 
 //------------------------------------------------------------------------------------

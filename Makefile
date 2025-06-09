@@ -2,7 +2,7 @@ CC := gcc
 CFLAGS := -g -fPIC -Wall -Wextra
 SRC_DIR := src
 HEADER_DIR := include
-LIBS := hashmap raylib pthread
+LIBS := raylib pthread m dl
 FILE_NAMES := $(wildcard $(SRC_DIR)/*.c)
 FILE_NAMES := $(foreach word, $(FILE_NAMES), $(patsubst $(SRC_DIR)/%.c,%,$(word)))
 OBJ_DIR := build/lib
@@ -12,7 +12,7 @@ TEST_DIR := tests
 TEST_FILES := $(wildcard $(TEST_DIR)/*.c)
 TEST_FILES := $(foreach word, $(TEST_FILES), $(patsubst $(TEST_DIR)/%.c,%,$(word)))
 BUILD_DIR := build
-INCLUDE_LIBS := $(foreach word, $(LIBS),-l$(word))
+INCLUDE_LIBS := -lraylib -lpthread -lm -ldl
 
 all: build_dir $(FILE_NAMES) main
 
